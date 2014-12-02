@@ -14,13 +14,29 @@ Send a POST request to `localhost:3000` with a 'Content-Type' of `application/js
 
 ```json
 {
-  "bounds": [
-    [40.712, -74.227],
-    [40.774, -74.125]
-  ],
+  "view": {
+    "bounds": [
+      [40.712, -74.227],
+      [40.774, -74.125]
+    ],
+    "latlng": [40.712, -74.227],
+    "zoom": 16
+  },
   "attribution": "Hello :)"
 }
 ```
+
+## Options
+
+### `view`
+
+* `bounds` - is an array of two arrays that hold lat, lng values, e.g. `[[40.712, -74.227], [40.774, -74.125]]`, supersedes `latlng` + `zoom`.
+* `latlng` - an array of lat, lng values, e.g. `[40.712, -74.227]`, usually goes with the `zoom` option.
+* `zoom` - an integer zoom value, defaults to `10`.
+
+### `attribution`
+
+Currently a text value that can contain HTML, and replaces the attribution on the map.
 
 
 ## TODO
