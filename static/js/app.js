@@ -30,8 +30,8 @@ if (options.view) {
   }
 }
 
-if (options.geojson) {
-  L.geoJson(options.geojson).addTo(map);
+if (options.geoJson) {
+  L.geoJson(options.geoJson).addTo(map);
 }
 
 // add an OpenStreetMap tile layer

@@ -42,7 +42,7 @@ If you want basic features, you can use a GET request instead, e.g. localhost:30
 
 Currently a text value that defaults to `http://{s}.tile.osm.org/{z}/{x}/{y}.png`.
 
-### `geojson`
+### `geoJson`
 
 Accepts valid [GeoJSON][geojson] and draws it on the basemap.
 
