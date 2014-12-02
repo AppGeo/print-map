@@ -52,7 +52,7 @@ Passing `false` will disable attribution.
 
 * Decide how to make this generic enough that it's useful as a service
 * Add custom basemaps/overlays
-* Add output options (type, size, quality)
+* Add output options (type, size, quality -- see [here for example](https://github.com/ariya/phantomjs/blob/master/examples/rasterize.js))
 
 [travis-badge-url]: https://travis-ci.org/AppGeo/print-map
 [travis-badge]: https://travis-ci.org/AppGeo/print-map.svg?branch=master
