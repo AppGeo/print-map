@@ -26,6 +26,10 @@ Send a POST request to `localhost:3000` with a 'Content-Type' of `application/js
 }
 ```
 
+### Using via a GET request
+
+If you want basic features, you can use a GET request instead, e.g. localhost:3000/?latlng=40.712,-74.227&zoom=16
+
 ## Options
 
 ### `view`

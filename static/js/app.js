@@ -10,10 +10,18 @@ if (options.view) {
   if (view.bounds) {
     map.fitBounds(view.bounds);
   }
-  else if (view.latlng) {
-    map.setView(view.latlng, view.zoom || 10, {
-      animate: false
-    });
+  else {
+    if (view.latlng) {
+      map.panTo(view.latlng, {
+        animate: false
+      });
+    }
+
+    if (view.zoom) {
+      map.setZoom(view.zoom, {
+        animate: false
+      });
+    }
   }
 }
 

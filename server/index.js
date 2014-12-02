@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var uuid = require('node-uuid');
 var snapshot = require('../lib');
+var toNumber = require('./utils/to-number');
 
 var app = express();
 var env = process.env.NODE_ENV || 'development';
@@ -36,16 +37,14 @@ app.get('/', function (req, res) {
   var id = uuid.v1();
   var latlng = req.param('latlng');
   var zoom = req.param('zoom');
-  var bounds = req.param('bounds');
   var options = {
     view: {
-      bounds: bounds,
-      latlng: latlng,
+      latlng: latlng ? latlng.split(',').map(toNumber) : undefined,
       zoom: zoom
     }
   };
 
-  data[id] = req.body;
+  data[id] = options;
 
   snapshot(id, function (err, data) {
     if (err) {
