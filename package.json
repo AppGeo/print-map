@@ -1,0 +1,26 @@
+{
+  "name": "print-map",
+  "version": "0.0.0",
+  "description": "Send map data and get back an image/pdf",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AppGeo/print-map.git"
+  },
+  "keywords": [
+    "print",
+    "map",
+    "pdf",
+    "image",
+    "server"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AppGeo/print-map/issues"
+  },
+  "homepage": "https://github.com/AppGeo/print-map"
+}
