@@ -51,7 +51,7 @@ app.get('/', function (req, res) {
       return console.error(err);
     }
 
-    res.set('Content-Type', 'image/jpg');
+    res.set('Content-Type', 'image/jpeg');
     res.send(new Buffer(data, 'base64'));
   });
 });
@@ -67,7 +67,7 @@ app.post('/', function (req, res) {
         return console.error(err);
       }
 
-      res.set('Content-Type', 'image/jpg');
+      res.set('Content-Type', 'image/jpeg');
       res.send(new Buffer(data, 'base64'));
     });
   }
@@ -75,7 +75,7 @@ app.post('/', function (req, res) {
 
 app.get('/:id', function (req, res) {
   var id = req.param('id');
-
+  console.log(data, data[id]);
   res.render('map', { options: data[id] });
 });
 

@@ -34,6 +34,7 @@
     "phantomjs": "^1.9.12"
   },
   "devDependencies": {
+    "supertest": "^0.15.0",
     "tap-spec": "^2.1.1",
     "tape": "^3.0.3"
   }
