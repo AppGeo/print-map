@@ -32,6 +32,31 @@ app.use(bodyParser.json())
 
 app.use('/', express.static(path.join(__dirname, '..', 'static')));
 
+app.get('/', function (req, res) {
+  var id = uuid.v1();
+  var latlng = req.param('latlng');
+  var zoom = req.param('zoom');
+  var bounds = req.param('bounds');
+  var options = {
+    view: {
+      bounds: bounds,
+      latlng: latlng,
+      zoom: zoom
+    }
+  };
+
+  data[id] = req.body;
+
+  snapshot(id, function (err, data) {
+    if (err) {
+      return console.error(err);
+    }
+
+    res.set('Content-Type', 'image/jpg');
+    res.send(new Buffer(data, 'base64'));
+  });
+});
+
 app.post('/', function (req, res) {
   if (req.body) {
     var id = uuid.v1();
