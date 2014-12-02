@@ -10,7 +10,7 @@ npm install
 npm start
 ```
 
-Send a POST request to `localhost:3000` with a 'Content-Type' of `application/json` with the following options:
+Send a POST request to `localhost:3000` with a 'Content-Type' of `application/json` with the following body:
 
 ```json
 {
