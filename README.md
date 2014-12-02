@@ -1,4 +1,4 @@
-print-map
+print-map [![Build Status][travis-badge]][travis-badge-url]
 =========
 
 Send map data and get back an image/pdf
@@ -53,3 +53,6 @@ Passing `false` will disable attribution.
 * Decide how to make this generic enough that it's useful as a service
 * Add custom basemaps/overlays
 * Add output options (type, size, quality)
+
+[travis-badge-url]: https://travis-ci.org/AppGeo/print-map
+[travis-badge]: https://travis-ci.org/AppGeo/print-map.svg?branch=master
