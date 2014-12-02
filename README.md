@@ -42,6 +42,10 @@ If you want basic features, you can use a GET request instead, e.g. localhost:30
 
 Currently a text value that defaults to `http://{s}.tile.osm.org/{z}/{x}/{y}.png`.
 
+### `geojson`
+
+Accepts valid [GeoJSON][geojson] and draws it on the basemap.
+
 ### `attribution`
 
 Currently a text value that can contain HTML, and replaces the attribution on the map.
@@ -54,5 +58,6 @@ Passing `false` will disable attribution.
 * Add custom basemaps/overlays
 * Add output options (type, size, quality)
 
+[geojson]: http://geojson.org/geojson-spec.html
 [travis-badge-url]: https://travis-ci.org/AppGeo/print-map
 [travis-badge]: https://travis-ci.org/AppGeo/print-map.svg?branch=master

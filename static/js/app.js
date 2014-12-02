@@ -30,6 +30,10 @@ if (options.view) {
   }
 }
 
+if (options.geojson) {
+  L.geoJson(options.geojson).addTo(map);
+}
+
 // add an OpenStreetMap tile layer
 L.tileLayer(baseMap, {
   attribution: options.attribution || '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
