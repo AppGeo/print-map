@@ -27,3 +27,4 @@ Send a POST request to `localhost:3000` with a 'Content-Type' of `application/js
 
 * Decide how to make this generic enough that it's useful as a service
 * Add custom basemaps/overlays
+* Add output options (type, size, quality)
