@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "test": "node test"
+    "test": "node test | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -32,5 +32,9 @@
     "morgan": "^1.5.0",
     "node-uuid": "^1.4.1",
     "phantomjs": "^1.9.12"
+  },
+  "devDependencies": {
+    "tap-spec": "^2.1.1",
+    "tape": "^3.0.3"
   }
 }
