@@ -26,6 +26,6 @@ if (options.view) {
 }
 
 // add an OpenStreetMap tile layer
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+L.tileLayer(options.baseMap ? options.baseMap : 'http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   attribution: options.attribution || '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
