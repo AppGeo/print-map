@@ -45,6 +45,7 @@ Currently a text value that defaults to `http://{s}.tile.osm.org/{z}/{x}/{y}.png
 ### `attribution`
 
 Currently a text value that can contain HTML, and replaces the attribution on the map.
+Passing `false` will disable attribution.
 
 
 ## TODO
