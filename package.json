@@ -4,6 +4,7 @@
   "description": "Send map data and get back an image/pdf",
   "main": "index.js",
   "scripts": {
+    "start": "node index",
     "test": "node test"
   },
   "repository": {
@@ -22,5 +23,14 @@
   "bugs": {
     "url": "https://github.com/AppGeo/print-map/issues"
   },
-  "homepage": "https://github.com/AppGeo/print-map"
+  "homepage": "https://github.com/AppGeo/print-map",
+  "dependencies": {
+    "body-parser": "^1.9.3",
+    "chalk": "^0.5.1",
+    "express": "^4.10.4",
+    "express-handlebars": "^1.1.0",
+    "morgan": "^1.5.0",
+    "node-uuid": "^1.4.1",
+    "phantomjs": "^1.9.12"
+  }
 }
