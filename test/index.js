@@ -12,6 +12,23 @@ test('GET returns image', function (t) {
     .expect('Content-Type', 'image/jpeg')
     .expect(200)
     .end(function (err, res) {
-      t.error(err);
+      t.error(err, 'no error');
+    });
+});
+
+test('POST returns image', function (t) {
+  t.plan(1);
+
+  request(app)
+    .post('/')
+    .send({
+      view: {
+        latlng: [40.712, -74.227]
+      }
+    })
+    .expect('Content-Type', 'image/jpeg')
+    .expect(200)
+    .end(function (err, res) {
+      t.error(err, 'no error');
     });
 });
