@@ -2,7 +2,7 @@
   "name": "print-map",
   "version": "0.0.0",
   "description": "Send map data and get back an image/pdf",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "start": "node index",
     "test": "node test | tap-spec"
