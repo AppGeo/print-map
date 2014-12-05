@@ -37,6 +37,7 @@ app.get('/', function (req, res) {
   var id = uuid.v1();
   var latlng = req.param('latlng');
   var zoom = req.param('zoom');
+  var size = req.param('size');
   var options = {
     view: {
       latlng: latlng ? latlng.split(',').map(toNumber) : undefined,
@@ -46,7 +47,9 @@ app.get('/', function (req, res) {
 
   data[id] = options;
 
-  snapshot(id, function (err, data) {
+  snapshot(id, {
+    size: size
+  }, function (err, data) {
     if (err) {
       return console.error(err);
     }
@@ -59,10 +62,17 @@ app.get('/', function (req, res) {
 app.post('/', function (req, res) {
   if (req.body) {
     var id = uuid.v1();
+    var output = req.body.output;
+    var options = {};
 
     data[id] = req.body;
 
-    snapshot(id, function (err, data) {
+    if (output) {
+      options.size = output.size;
+      options.quality = output.quality;
+    }
+
+    snapshot(id, options, function (err, data) {
       if (err) {
         return console.error(err);
       }

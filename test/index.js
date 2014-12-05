@@ -32,3 +32,25 @@ test('POST returns image', function (t) {
       t.error(err, 'no error');
     });
 });
+
+test('POST with modified output', function (t) {
+  t.plan(1);
+
+  request(app)
+    .post('/')
+    .send({
+      view: {
+        latlng: [40.712, -74.227]
+      },
+      output: {
+        size: '1920x1080'
+      }
+    })
+    .expect('Content-Type', 'image/jpeg')
+    .expect(200)
+    .end(function (err, res) {
+      t.error(err, 'no error');
+    });
+
+
+});
