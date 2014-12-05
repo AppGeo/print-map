@@ -3,6 +3,8 @@ print-map [![Build Status][travis-badge]][travis-badge-url]
 
 Send map data and get back an image/pdf
 
+[![NPM][npm-badge]][npm-badge-url]
+
 ## Usage
 
 ```no-highlight
@@ -62,3 +64,5 @@ Passing `false` will disable attribution.
 [geojson]: http://geojson.org/geojson-spec.html
 [travis-badge-url]: https://travis-ci.org/AppGeo/print-map
 [travis-badge]: https://travis-ci.org/AppGeo/print-map.svg?branch=master
+[npm-badge-url]: https://nodei.co/npm/print-map/
+[npm-badge]: https://nodei.co/npm/print-map.png?downloads=true&stars=true
