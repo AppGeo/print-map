@@ -34,6 +34,11 @@ If you want basic features, you can use a GET request instead, e.g. localhost:30
 
 ## Options
 
+### `output`
+
+* `size` - string of the following format 'widthxheight', defaults to '800x600'.
+* `quality` - number from 0 - 100, defaults to 100.
+
 ### `view`
 
 * `bounds` - is an array of two arrays that hold lat, lng values, e.g. `[[40.712, -74.227], [40.774, -74.125]]`, supersedes `latlng` + `zoom`.
