@@ -69,8 +69,6 @@ Passing `false` will disable attribution.
 
 * Decide how to make this generic enough that it's useful as a service
 * Add custom basemaps/overlays (bring [these](http://leaflet-extras.github.io/leaflet-providers/preview/) in)
-* Add output options (type, size, quality -- see [here for example](https://github.com/ariya/phantomjs/blob/master/examples/rasterize.js))
-* Add Google Maps
 
 [geojson]: http://geojson.org/geojson-spec.html
 [travis-badge-url]: https://travis-ci.org/AppGeo/print-map
