@@ -65,11 +65,6 @@ Currently a text value that can contain HTML, and replaces the attribution on th
 Passing `false` will disable attribution.
 
 
-## TODO
-
-* Decide how to make this generic enough that it's useful as a service
-* Add custom basemaps/overlays (bring [these](http://leaflet-extras.github.io/leaflet-providers/preview/) in)
-
 [geojson]: http://geojson.org/geojson-spec.html
 [travis-badge-url]: https://travis-ci.org/AppGeo/print-map
 [travis-badge]: https://travis-ci.org/AppGeo/print-map.svg?branch=master
