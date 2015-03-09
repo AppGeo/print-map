@@ -53,6 +53,47 @@ test('POST with modified output', function (t) {
     });
 });
 
+test('POST with invalid output.format', function (t) {
+  t.plan(2);
+
+  request(app)
+    .post('/')
+    .send({
+      view: {
+        latlng: [40.712, -74.227]
+      },
+      output: {
+        format: 'monster'
+      }
+    })
+    .expect('Content-Type', /json/)
+    .expect(400)
+    .end(function (err, res) {
+      t.error(err, 'No error');
+      t.equal(res.body.message, 'Invalid format type, valid options include: jpeg, png, gif, pdf', 'Valid error message');
+    });
+});
+
+test('POST with pdf format', function (t) {
+  t.plan(1);
+
+  request(app)
+    .post('/')
+    .send({
+      view: {
+        latlng: [40.712, -74.227]
+      },
+      output: {
+        format: 'pdf'
+      }
+    })
+    .expect('Content-Type', 'application/pdf')
+    .expect(200)
+    .end(function (err, res) {
+      t.error(err, 'No error');
+    });
+});
+
 // Hack to get it to process.exit
 // Probably due to dangling setInterval or promises
 test('end', function (t) {

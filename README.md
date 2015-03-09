@@ -34,16 +34,18 @@ If you want basic features, you can use a GET request instead, e.g.  `localhost:
 
 #### Available Options
 
-* latlng
-* zoom
-* size
+* `latlng` (see `view.latlng`)
+* `zoom` (see `view.zoom`)
+* `size` (see `output.size)
+* `format` (see `output.format`)
 
 ## Options
 
 ### `output`
 
-* `size` - string of the following format 'widthxheight', defaults to '800x600'.
-* `quality` - number from 0 - 100, defaults to 100.
+* `size` - string of the following format 'widthxheight'; defaults to '800x600'.
+* `quality` - number from 0 - 100; defaults to 100.
+* `format` - one of 'pdf', 'jpeg' or 'png'; defaults to 'jpeg'
 
 ### `view`
 

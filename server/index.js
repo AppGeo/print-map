@@ -8,6 +8,7 @@ var exphbs = require('express-handlebars');
 var uuid = require('node-uuid');
 var snapshot = require('../lib');
 var toNumber = require('./utils/to-number');
+var formatTypes = require('./utils/format-types');
 
 var app = express();
 var env = process.env.NODE_ENV || 'development';
@@ -38,9 +39,10 @@ app.use('/', express.static(path.join(__dirname, '..', 'static')));
 
 app.get('/', function (req, res) {
   var id = uuid.v1();
-  var latlng = req.param('latlng');
-  var zoom = req.param('zoom');
-  var size = req.param('size');
+  var latlng = req.query.latlng;
+  var zoom = req.query.zoom;
+  var size = req.query.size;
+  var format = req.query.format || 'jpeg';
   var options = {
     view: {
       latlng: latlng ? latlng.split(',').map(toNumber) : undefined,
@@ -52,7 +54,7 @@ app.get('/', function (req, res) {
 
   snapshot(id, {
     size: size
-  }, snapshotResponse(res));
+  }, snapshotResponse(format, res));
 });
 
 app.post('/', function (req, res) {
@@ -60,15 +62,17 @@ app.post('/', function (req, res) {
     var id = uuid.v1();
     var output = req.body.output;
     var options = {};
+    var format = output && output.format || 'jpeg';
 
     data[id] = req.body;
 
     if (output) {
       options.size = output.size;
       options.quality = output.quality;
+      options.format = output.format;
     }
 
-    snapshot(id, options, snapshotResponse(res));
+    snapshot(id, options, snapshotResponse(format, res));
   }
 });
 
@@ -81,13 +85,15 @@ app.get('/:id', function (req, res) {
 
 module.exports = app;
 
-function snapshotResponse(res) {
+function snapshotResponse(format, res) {
   return function (err, data) {
     if (err) {
-      return console.error(err);
+      return res.status(400).json({ message: err });
     }
 
-    res.set('Content-Type', 'image/jpeg');
+    if (format) {
+      res.set('Content-Type', formatTypes[format]);
+    }
     res.send(new Buffer(data, 'base64'));
   };
 }
