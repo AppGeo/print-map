@@ -44,6 +44,9 @@ app.get('/', function (req, res) {
   var size = req.query.size;
   var format = req.query.format || 'jpeg';
   var options = {
+    output: {
+      format: format
+    },
     view: {
       latlng: latlng ? latlng.split(',').map(toNumber) : undefined,
       zoom: zoom
@@ -53,7 +56,8 @@ app.get('/', function (req, res) {
   data[id] = options;
 
   snapshot(id, {
-    size: size
+    size: size,
+    format: format
   }, snapshotResponse(format, res));
 });
 
@@ -94,6 +98,7 @@ function snapshotResponse(format, res) {
     if (format) {
       res.set('Content-Type', formatTypes[format]);
     }
-    res.send(new Buffer(data, 'base64'));
+
+    res.send(format === 'pdf' ? data : new Buffer(data, 'base64'));
   };
 }
