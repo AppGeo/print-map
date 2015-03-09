@@ -19,7 +19,10 @@ var hbs = exphbs.create({
 });
 var data = {};
 
-app.use(morgan('dev'));
+if (env === 'development') {
+  app.use(morgan('dev'));
+}
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', hbs.engine);
@@ -49,14 +52,7 @@ app.get('/', function (req, res) {
 
   snapshot(id, {
     size: size
-  }, function (err, data) {
-    if (err) {
-      return console.error(err);
-    }
-
-    res.set('Content-Type', 'image/jpeg');
-    res.send(new Buffer(data, 'base64'));
-  });
+  }, snapshotResponse(res));
 });
 
 app.post('/', function (req, res) {
@@ -72,17 +68,11 @@ app.post('/', function (req, res) {
       options.quality = output.quality;
     }
 
-    snapshot(id, options, function (err, data) {
-      if (err) {
-        return console.error(err);
-      }
-
-      res.set('Content-Type', 'image/jpeg');
-      res.send(new Buffer(data, 'base64'));
-    });
+    snapshot(id, options, snapshotResponse(res));
   }
 });
 
+// Called by phantomjs to get map
 app.get('/:id', function (req, res) {
   var id = req.param('id');
   console.log(data, data[id]);
@@ -90,3 +80,14 @@ app.get('/:id', function (req, res) {
 });
 
 module.exports = app;
+
+function snapshotResponse(res) {
+  return function (err, data) {
+    if (err) {
+      return console.error(err);
+    }
+
+    res.set('Content-Type', 'image/jpeg');
+    res.send(new Buffer(data, 'base64'));
+  };
+}
