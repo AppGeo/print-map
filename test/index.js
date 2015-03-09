@@ -51,6 +51,13 @@ test('POST with modified output', function (t) {
     .end(function (err, res) {
       t.error(err, 'no error');
     });
+});
 
-
+// Hack to get it to process.exit
+// Probably due to dangling setInterval or promises
+test('end', function (t) {
+  t.end();
+  process.nextTick(function () {
+    process.exit();
+  });
 });
