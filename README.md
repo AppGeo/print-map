@@ -66,6 +66,13 @@ Accepts valid [GeoJSON][geojson] and draws it on the basemap.
 Currently a text value that can contain HTML, and replaces the attribution on the map.
 Passing `false` will disable attribution.
 
+## Testing
+
+```sh
+npm install
+npm test
+```
+
 
 [geojson]: http://geojson.org/geojson-spec.html
 [travis-badge-url]: https://travis-ci.org/AppGeo/print-map
