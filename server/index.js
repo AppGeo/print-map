@@ -91,6 +91,7 @@ module.exports = app;
 function snapshotResponse(format, res) {
   return function (err, data) {
     if (err) {
+      console.log(err);
       return res.status(400).json({ message: err });
     }
 
