@@ -55,10 +55,13 @@ app.get('/', function (req, res) {
 
   data[id] = options;
 
-  snapshot(id, {
+  var ecto = snapshot(id, {
     size: size,
     format: format
   }, snapshotResponse(format, res));
+  app.cleanup = function () {
+    ecto.cleanup(function () {});
+  };
 });
 
 app.post('/', function (req, res) {
@@ -76,7 +79,10 @@ app.post('/', function (req, res) {
       options.format = output.format;
     }
 
-    snapshot(id, options, snapshotResponse(format, res));
+    var ecto = snapshot(id, options, snapshotResponse(format, res));
+    app.cleanup = function () {
+      ecto.cleanup(function () {});
+    };
   }
 });
 
