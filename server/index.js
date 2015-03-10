@@ -82,7 +82,8 @@ app.post('/', function (req, res) {
 
 // Called by phantomjs to get map
 app.get('/:id', function (req, res) {
-  var id = req.param('id');
+  var id = req.params.id;
+  console.log(id, data[id]);
   res.render('map', { options: data[id] });
 });
 
