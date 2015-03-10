@@ -26,13 +26,13 @@
   "homepage": "https://github.com/AppGeo/print-map",
   "dependencies": {
     "body-parser": "^1.9.3",
-    "chalk": "^0.5.1",
+    "chalk": "^1.0.0",
     "ectoplasm": "^0.3.1",
     "express": "^4.10.4",
     "express-handlebars": "^1.1.0",
     "morgan": "^1.5.0",
     "node-uuid": "^1.4.1",
-    "phantomjs": "^1.9.12"
+    "phantomjs": "^1.9.16"
   },
   "devDependencies": {
     "supertest": "^0.15.0",

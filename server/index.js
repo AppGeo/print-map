@@ -83,7 +83,6 @@ app.post('/', function (req, res) {
 // Called by phantomjs to get map
 app.get('/:id', function (req, res) {
   var id = req.param('id');
-  console.log(data, data[id]);
   res.render('map', { options: data[id] });
 });
 
@@ -95,10 +94,12 @@ function snapshotResponse(format, res) {
       return res.status(400).json({ message: err });
     }
 
+    var result = format === 'pdf' ? data : new Buffer(data, 'base64');
+
     if (format) {
       res.set('Content-Type', formatTypes[format]);
     }
 
-    res.send(format === 'pdf' ? data : new Buffer(data, 'base64'));
+    res.send(result);
   };
 }
