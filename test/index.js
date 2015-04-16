@@ -13,7 +13,6 @@ test('GET returns image', function (t) {
     .expect(200)
     .end(function (err, res) {
       t.error(err, 'no error');
-      app.cleanup();
     });
 });
 
@@ -31,7 +30,6 @@ test('POST returns image', function (t) {
     .expect(200)
     .end(function (err, res) {
       t.error(err, 'no error');
-      app.cleanup();
     });
 });
 
@@ -52,7 +50,6 @@ test('POST with modified output', function (t) {
     .expect(200)
     .end(function (err, res) {
       t.error(err, 'no error');
-      app.cleanup();
     });
 });
 
@@ -74,7 +71,6 @@ test('POST with invalid output.format', function (t) {
     .end(function (err, res) {
       t.error(err, 'No error');
       t.equal(res.body.message, 'Invalid format type, valid options include: jpeg, png, gif, pdf', 'Valid error message');
-      app.cleanup();
     });
 });
 
@@ -95,7 +91,6 @@ test('POST with pdf format', function (t) {
     .expect(200)
     .end(function (err, res) {
       t.error(err, 'No error');
-      app.cleanup();
     });
 });
 
@@ -103,7 +98,6 @@ test('POST with pdf format', function (t) {
 // Probably due to dangling setInterval or promises
 test('end', function (t) {
   t.end();
-  app.cleanup();
   process.nextTick(function () {
     process.exit();
   });

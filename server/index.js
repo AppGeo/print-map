@@ -19,6 +19,7 @@ var hbs = exphbs.create({
   }
 });
 var data = {};
+var ecto;
 
 if (env === 'development') {
   app.use(morgan('dev'));
@@ -55,12 +56,11 @@ app.get('/', function (req, res) {
 
   data[id] = options;
 
-  var ecto = snapshot(id, {
+  ecto = snapshot(id, {
     size: size,
     format: format
   }, snapshotResponse(format, res));
   app.cleanup = function () {
-    ecto.cleanup(function () {});
   };
 });
 
@@ -79,10 +79,7 @@ app.post('/', function (req, res) {
       options.format = output.format;
     }
 
-    var ecto = snapshot(id, options, snapshotResponse(format, res));
-    app.cleanup = function () {
-      ecto.cleanup(function () {});
-    };
+    ecto = snapshot(id, options, snapshotResponse(format, res));
   }
 });
 
@@ -91,6 +88,15 @@ app.get('/:id', function (req, res) {
   var id = req.params.id;
   console.log(id, data[id]);
   res.render('map', { options: data[id] });
+});
+
+app.on('close', function () {
+  console.log(ecto ? 'has ecto' : 'no ecto');
+  if (!ecto) return;
+
+  ecto.cleanup(function () {
+    ecto = undefined;
+  });
 });
 
 module.exports = app;
