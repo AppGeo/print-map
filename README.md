@@ -1,9 +1,10 @@
-print-map [![Build Status][travis-badge]][travis-badge-url]
+print-map
 =========
 
 Send map data and get back an image/pdf
 
-[![NPM][npm-badge]][npm-badge-url]
+[![NPM][npm-badge]][npm-badge-url]  
+[![Build Status][travis-badge]][travis-badge-url]
 
 ## Usage
 
