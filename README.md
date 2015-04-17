@@ -25,7 +25,7 @@ Send a POST request to `localhost:3000` with a 'Content-Type' of `application/js
     "latlng": [40.712, -74.227],
     "zoom": 16
   },
-  "attribution": "Hello :)"
+  "attribution": "© OpenStreetMap contributors"
 }
 ```
 
